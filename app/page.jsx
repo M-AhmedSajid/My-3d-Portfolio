@@ -11,7 +11,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "col-span-2 xl:row-span-3",
+    className: "md:col-span-2 lg:row-span-3",
   },
   {
     Icon: FileInput,
@@ -20,7 +20,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "col-span-1 xl:row-span-4",
+    className: "col-span-1 lg:row-span-4",
   },
   {
     Icon: Globe,
@@ -29,7 +29,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "col-span-1 xl:row-span-3",
+    className: "col-span-1 lg:row-span-3",
   },
   {
     Icon: Calendar,
@@ -38,7 +38,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "col-span-1 xl:row-span-3",
+    className: "col-span-1 lg:row-span-3",
   },
   {
     Icon: Bell,
@@ -48,7 +48,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "col-span-1 xl:row-span-2",
+    className: "col-span-1 lg:row-span-2",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Home() {
         <HeroSection />
       </WarpBackground>
 
-      <section className="relative bg-white dark:bg-background z-10 py-20">
+      <section className="relative bg-white dark:bg-background z-10 px-3 py-10 lg:py-20">
         {/* <div className="flex justify-center items-center">
           <div className="w-full md:w-1/2 bg-red-500"></div>
           <div className="w-full md:w-1/2"></div>

@@ -12,7 +12,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:text-black dark:hover:text-primary-foreground shadow hover:bg-transparent relative",
+          "bg-primary text-primary-foreground hover:text-black dark:hover:text-primary-foreground shadow lg:hover:bg-transparent relative",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
@@ -64,7 +64,7 @@ const Button = React.forwardRef(
       >
         <div className={cn(buttonVariants({ variant, size, className }))}>
           {children}
-          <span className="block absolute w-full h-full hover:scale-[3]" />
+          <span className="block absolute w-full h-full lg:hover:scale-[3]" />
         </div>
       </Comp>
     );

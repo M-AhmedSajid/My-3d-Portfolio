@@ -54,7 +54,7 @@ export default function Cursor() {
 
   return (
     <motion.div
-      className={`bg-white fixed pointer-events-none z-40 mix-blend-difference ${
+      className={`bg-white fixed pointer-events-none z-40 mix-blend-difference hidden lg:block ${
         button ? "rounded-md" : "rounded-full"
       }`}
       style={{

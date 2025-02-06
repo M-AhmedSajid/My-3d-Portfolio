@@ -6,7 +6,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: ["mix-blend-difference"],
+  safelist: ["mix-blend-difference", "z-10", "z-20", "z-30", "z-40", "z-50"],
   theme: {
   	extend: {
 		container: {

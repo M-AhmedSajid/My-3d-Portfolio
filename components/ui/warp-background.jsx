@@ -60,8 +60,8 @@ export const WarpBackground = ({
   const leftBeams = useMemo(() => generateBeams(), [generateBeams]);
 
   return (
-    <div className={cn("relative", className)} {...props}>
-      <span className="absolute block w-full h-20 z-10 bottom-0 from-white/0 to-white bg-gradient-to-b dark:from-black/0 dark:to-black"></span>
+    <div className={cn("sticky top-0", className)} {...props}>
+      {/* <span className="absolute block w-full h-20 z-10 bottom-0 from-white/0 to-white bg-gradient-to-b dark:from-black/0 dark:to-black"></span> */}
       <div
         style={{
           "--perspective": `${perspective}px`,

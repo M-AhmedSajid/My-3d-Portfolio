@@ -5,9 +5,10 @@ const CursorContext = createContext();
 
 export function CursorProvider({ children }) {
   const [size, setSize] = useState(24);
+  const [button, setButton] = useState(null);  
 
   return (
-    <CursorContext.Provider value={{ size, setSize }}>
+    <CursorContext.Provider value={{ size, setSize, button, setButton }}>
       {children}
     </CursorContext.Provider>
   );

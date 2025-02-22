@@ -7,7 +7,7 @@ const BentoGrid = ({ children, className, ...props }) => {
   return (
     <div
       className={cn(
-        "grid lg:grid-rows-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 container h-full",
+        "grid lg:grid-rows-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 container h-full",
         className
       )}
       {...props}
@@ -25,9 +25,11 @@ const BentoCard = ({ children, className, title }) => (
     )}
   >
     <div className="z-10 transform-gpu relative flex flex-col h-full justify-center transition-all p-6 gap-1">
-      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3">
-        {title}
-      </h3>
+      {title && (
+        <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
+          {title}
+        </h3>
+      )}
       {children}
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />

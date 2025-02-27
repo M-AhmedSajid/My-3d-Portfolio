@@ -1,4 +1,5 @@
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { TextAnimate } from "@/components/magicui/text-animate";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
 import CopyButton from "@/components/ui/copy-button";
@@ -998,10 +999,19 @@ const DarkIcons = {
 
 export default function AboutSection() {
   return (
-    <section className="relative bg-white dark:bg-background z-10 px-3 py-10 lg:py-20">
+    <section>
+      <TextAnimate
+        animation="slideLeft"
+        by="character"
+        as="h2"
+        once
+        className="text-center mb-5 text-4xl font-bold"
+      >
+        About Me.
+      </TextAnimate>
       <BentoGrid>
         <BentoCard className="md:col-span-2 lg:row-span-3">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5">
             <div>
               <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
                 👋 Hey, I'm M. Ahmed Sajid

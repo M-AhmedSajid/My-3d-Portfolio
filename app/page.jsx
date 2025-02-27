@@ -41,8 +41,10 @@ export default function Home() {
       <WarpBackground beamsPerSide={2}>
         <HeroSection />
       </WarpBackground>
-      <AboutSection />
-      <ProjectsSection />
+      <div className="relative bg-white dark:bg-background z-10 px-3 py-10 space-y-10">
+        <AboutSection />
+        <ProjectsSection />
+      </div>
     </main>
   );
 }

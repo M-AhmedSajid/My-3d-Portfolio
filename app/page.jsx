@@ -3,6 +3,7 @@ import HeroSection from "./components/hero-section";
 import { Bell, Calendar, FileText, Globe } from "lucide-react";
 import AboutSection from "./components/about-section";
 import ProjectsSection from "./components/projects-section";
+import ExpSection from "./components/exp-section";
 
 const features = [
   {
@@ -44,6 +45,7 @@ export default function Home() {
       <div className="relative bg-white dark:bg-background z-10 px-3 py-10 space-y-10">
         <AboutSection />
         <ProjectsSection />
+        <ExpSection />
       </div>
     </main>
   );

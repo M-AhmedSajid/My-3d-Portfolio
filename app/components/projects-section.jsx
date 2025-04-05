@@ -100,7 +100,7 @@ export default function ProjectsSection() {
                 <Image
                   src={project.lg}
                   fill
-                  className="object-cover object-top opacity-10 rounded-xl"
+                  className="object-cover object-top opacity-20 dark:opacity-10 rounded-xl"
                   alt={project.title}
                 />
                 <p className="z-40 relative h-full flex items-center justify-center">

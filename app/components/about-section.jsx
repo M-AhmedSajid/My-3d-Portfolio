@@ -1028,7 +1028,7 @@ export default function AboutSection() {
               </div>
             </div>
             <Image
-              src="/Profile Photo.png"
+              src="/profile-photo.png"
               alt="Profile Picture of Muhammad Ahmed Sajid"
               width={200}
               height={200}

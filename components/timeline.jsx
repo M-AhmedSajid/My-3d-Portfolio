@@ -1,8 +1,15 @@
 "use client";
 
-import { School, Briefcase, University, Building2, Flag, BriefcaseBusiness } from "lucide-react";
+import {
+  School,
+  Briefcase,
+  University,
+  Building2,
+  Flag,
+  BriefcaseBusiness,
+} from "lucide-react";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -55,8 +62,15 @@ const exp = [
 ];
 
 export default function Timeline() {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const { resolvedTheme, theme, systemTheme } = useTheme();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // If theme is set to 'system', use the system preference
+    // Otherwise use the explicitly set theme
+    const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
+    setIsDark(currentTheme === "dark");
+  }, [resolvedTheme, theme, systemTheme]);
 
   // Theme-dependent styles
   const timelineStyles = {
@@ -86,7 +100,8 @@ export default function Timeline() {
         background: "#ffffff",
         color: "#111827",
         borderRadius: "0.5rem",
-        boxShadow: "0 0 0 1px rgba(0,0,0,.03),0 2px 4px rgba(0,0,0,.05),0 12px 24px rgba(0,0,0,.05)",
+        boxShadow:
+          "0 0 0 1px rgba(0,0,0,.03),0 2px 4px rgba(0,0,0,.05),0 12px 24px rgba(0,0,0,.05)",
         borderBottom: "3px solid hsl(204 70% 53%)",
       },
       contentArrowStyle: {

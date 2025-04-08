@@ -14,7 +14,7 @@ export default function ExpSection() {
       >
         Experience.
       </TextAnimate>
-      <div className="container">
+      <div className="container" suppressHydrationWarning>
         <Timeline />
       </div>
     </section>

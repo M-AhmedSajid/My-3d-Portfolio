@@ -20,6 +20,7 @@ const projects = [
   {
     title: "Developer Junction Tech",
     des: "A professional IT services website offering web development, app development, and digital solutions. Built with a sleek and responsive design to showcase services, client testimonials, and a portfolio.",
+    thumb: "/devjunction-thumb.png",
     lg: "/devjunction.png",
     md: "/devjunction-md.png",
     sm: "/devjunction-sm.png",
@@ -29,6 +30,7 @@ const projects = [
   {
     title: "Nexora",
     des: "A sleek and responsive website offering comprehensive social media marketing and digital services. Features include service packages, client testimonials, and a user-friendly interface.",
+    thumb: "/nexora-thumb.png",
     lg: "/nexora.png",
     md: "/nexora-md.png",
     sm: "/nexora-sm.png",
@@ -37,7 +39,8 @@ const projects = [
   },
   {
     title: "Spectra Tech Solutions",
-    des: "A dynamic company specializing in graphic design, video editing, web development, and content production. The website features a modern, responsive design that highlights their diverse services, showcases a portfolio of past projects, and includes client testimonials.",
+    des: "A creative agency offering graphic design, video editing, web development, and content production — with a modern, responsive site showcasing services, portfolio, and testimonials.",
+    thumb: "/spectra-thumb.png",
     lg: "/spectra.png",
     md: "/spectra-md.png",
     sm: "/spectra-sm.png",
@@ -46,7 +49,8 @@ const projects = [
   },
   {
     title: "Smart Website",
-    des: "A modern, responsive website template designed for an online tool that offers data tracking and analysis services. Features include service descriptions, team member profiles, pricing plans, and a blog section, all built using Bootstrap for a sleek and user-friendly interface.",
+    des: "A sleek, responsive Bootstrap template for an online data tracking tool — includes service details, team profiles, pricing, and a blog section.",
+    thumb: "/smart-thumb.png",
     lg: "/smart.png",
     md: "/smart-md.png",
     sm: "/smart-sm.png",
@@ -98,7 +102,7 @@ export default function ProjectsSection() {
             <DrawerTrigger>
               <MagicCard className="cursor-pointer flex-col items-center justify-center text-4xl aspect-square">
                 <Image
-                  src={project.lg}
+                  src={project.thumb}
                   fill
                   className="object-cover object-top opacity-20 dark:opacity-10 rounded-xl"
                   alt={project.title}

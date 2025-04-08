@@ -4,6 +4,7 @@ import { Bell, Calendar, FileText, Globe } from "lucide-react";
 import AboutSection from "./components/about-section";
 import ProjectsSection from "./components/projects-section";
 import ExpSection from "./components/exp-section";
+import ContactSection from "./components/contact-section";
 
 const features = [
   {
@@ -46,6 +47,7 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <ExpSection />
+        <ContactSection />
       </div>
     </main>
   );

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ExpSection() {
   return (
-    <section>
+    <section id="exp">
       <TextAnimate
         animation="slideLeft"
         by="character"

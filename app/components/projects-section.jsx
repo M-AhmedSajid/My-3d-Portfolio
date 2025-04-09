@@ -86,7 +86,7 @@ const screenSizes = [
 
 export default function ProjectsSection() {
   return (
-    <section>
+    <section id="work">
       <TextAnimate
         animation="slideLeft"
         by="character"

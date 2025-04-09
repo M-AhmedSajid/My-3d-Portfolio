@@ -999,7 +999,7 @@ const DarkIcons = {
 
 export default function AboutSection() {
   return (
-    <section>
+    <section id="about">
       <TextAnimate
         animation="slideLeft"
         by="character"

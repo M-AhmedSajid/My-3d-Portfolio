@@ -94,4 +94,23 @@ body {
     background: #333;
     border-radius: 5px;
   }
+
+  .spinner {
+    width: 70.4px;
+    height: 70.4px;
+    animation: spinner 2s infinite ease;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+    }
+    50% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+    }
+    100% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+    }
+  }
 }

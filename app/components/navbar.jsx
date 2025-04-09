@@ -8,25 +8,58 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import { motion } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const links = [
   { txt: "Home", href: "#home" },
   { txt: "About", href: "#about" },
   { txt: "Work", href: "#work" },
+  { txt: "Experience", href: "#exp" },
   { txt: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [mobile, setMobile] = useState(false);
+  const [activeLink, setActiveLink] = useState("#home");
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
     opacity: 0,
   });
+
+  // Track scroll position to update active link
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      // Find which section is currently in view
+      for (const link of links) {
+        const sectionId = link.href.substring(1);
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveLink(link.href);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const mouseEnter = (e) => {
     let target = e.target.closest("li"); // Ensures we get the correct list item
@@ -49,6 +82,12 @@ export default function Navbar() {
   };
 
   const { setTheme } = useTheme();
+
+  const handleLinkClick = (href) => {
+    setActiveLink(href);
+    setMobile(false);
+  };
+
   return (
     <>
       <header className="fixed top-0 z-50 w-full px-8 py-4">
@@ -63,7 +102,12 @@ export default function Navbar() {
                 >
                   <Link href={link.href} legacyBehavior passHref>
                     <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        activeLink === link.href &&
+                          "bg-primary text-primary-foreground"
+                      )}
+                      onClick={() => handleLinkClick(link.href)}
                     >
                       {link.txt}
                     </NavigationMenuLink>
@@ -124,8 +168,16 @@ export default function Navbar() {
         }`}
       >
         {links.map((link) => (
-          <li key={link.txt} className="text-3xl">
-            <Link href={link.href}>{link.txt}</Link>
+          <li
+            key={link.txt}
+            className={cn(
+              "text-3xl",
+              activeLink === link.href && "text-primary font-bold"
+            )}
+          >
+            <Link href={link.href} onClick={() => handleLinkClick(link.href)}>
+              {link.txt}
+            </Link>
           </li>
         ))}
       </ul>

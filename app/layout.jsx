@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import { CursorProvider } from "@/context/cursor-context";
 import Cursor from "@/lib/cursor";
 import { ThemeProvider } from "@/lib/theme-provider";
+import Loader from "./components/loader";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <CursorProvider>
+            <Loader />
             <Cursor />
             <Navbar />
             {children}

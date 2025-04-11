@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Title from "@/components/ui/title";
+import { BoxReveal } from "@/components/magicui/box-reveal";
 
 export default function HeroSection() {
   return (
@@ -14,10 +15,14 @@ export default function HeroSection() {
           Passionate Web Developer 🚀 &#38; Creative Designer 🎨
         </Title>
         <div className="flex justify-center items-center space-x-5">
-          <Button>Hire Me</Button>
-          <Link href="#" className="hover:text-primary duration-300">
-            Learn More →
-          </Link>
+          <BoxReveal>
+            <Button>Hire Me</Button>
+          </BoxReveal>
+          <BoxReveal>
+            <Link href="#" className="hover:text-primary duration-300">
+              Learn More →
+            </Link>
+          </BoxReveal>
         </div>
       </div>
     </section>

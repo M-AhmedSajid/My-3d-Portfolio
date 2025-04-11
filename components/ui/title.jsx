@@ -2,6 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useCursor } from "@/context/cursor-context";
+import { BoxReveal } from "../magicui/box-reveal";
 
 export default function Title({ className, Comp, size, children }) {
   const { setSize } = useCursor();
@@ -12,7 +13,7 @@ export default function Title({ className, Comp, size, children }) {
       onMouseEnter={() => setSize(size)}
       onMouseLeave={() => setSize(24)}
     >
-      {children}
+      <BoxReveal>{children}</BoxReveal>
     </Comp>
   );
 }

@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { TextAnimate } from "../magicui/text-animate";
 
 const BentoGrid = ({ children, className, ...props }) => {
   return (
@@ -26,9 +27,15 @@ const BentoCard = ({ children, className, title }) => (
   >
     <div className="z-10 transform-gpu relative flex flex-col h-full justify-center transition-all p-6 gap-1">
       {title && (
-        <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
+        <TextAnimate
+          animation="slideUp"
+          by="word"
+          as="h3"
+          once
+          className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none"
+        >
           {title}
-        </h3>
+        </TextAnimate>
       )}
       {children}
     </div>

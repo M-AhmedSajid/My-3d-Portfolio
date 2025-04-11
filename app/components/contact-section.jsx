@@ -89,6 +89,7 @@ export default function ContactSection() {
             ref={formRef}
             onSubmit={handleSubmit}
             className="flex flex-col gap-5"
+            data-aos="fade-right"
           >
             <label className="flex flex-col">
               <span className="font-medium mb-2">Full Name</span>
@@ -129,10 +130,7 @@ export default function ContactSection() {
             </Button>
           </form>
         </div>
-
-        <div className="xl:flex-1 xl:h-auto md:h-[400px] h-[200px]">
-          <ComputersCanvas />
-        </div>
+        <ComputersCanvas />
       </div>
     </section>
   );

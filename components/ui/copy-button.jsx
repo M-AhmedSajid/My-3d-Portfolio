@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "./button";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TextAnimate } from "../magicui/text-animate";
 
 export default function CopyButton({txt, className}) {
   const [copied, setCopied] = useState(false);
@@ -14,7 +15,7 @@ export default function CopyButton({txt, className}) {
 
   return (
     <div className={cn("flex items-center justify-center space-x-3", className)}>
-    <p>{txt}</p>
+    <TextAnimate animation="blurIn" by="word" as="p" once>{txt}</TextAnimate>
       <Button
         variant="outline"
         size="icon"

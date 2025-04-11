@@ -1013,16 +1013,28 @@ export default function AboutSection() {
         <BentoCard className="md:col-span-2 lg:row-span-3">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5">
             <div>
-              <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
+              <TextAnimate
+                animation="slideUp"
+                by="word"
+                as="h3"
+                once
+                className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none"
+              >
                 👋 Hey, I'm M. Ahmed Sajid
-              </h3>
-              <p className="max-w-lg text-neutral-400 group-hover:translate-x-3">
+              </TextAnimate>
+              <TextAnimate
+                animation="blurIn"
+                by="word"
+                as="p"
+                once
+                className="max-w-lg text-neutral-400 group-hover:translate-x-3"
+              >
                 I'm a passionate Full-Stack Developer with a love for building
                 scalable web applications. My expertise lies in Next.js, React,
                 and Node.js, and I enjoy crafting smooth user experiences. When
                 I'm not coding, you'll find me exploring new tech trends or
                 writing dev content on LinkedIn.
-              </p>
+              </TextAnimate>
               <div className="group-hover:translate-x-3 mt-2">
                 <Button>Let&apos;s Work Together</Button>
               </div>
@@ -1099,20 +1111,40 @@ export default function AboutSection() {
           title="🛠️ I Am Expert In"
         >
           <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <li>⚡ Full-Stack Web Development (MERN & Next.js)</li>
-            <li>📌 Scalable & High-Performance Web Apps</li>
-            <li>🚀 UI/UX with Tailwind & Framer Motion</li>
-            <li>🔧 API Development & Integrations</li>
-            <li>📊 Database Management (MySQL & MongoDB)</li>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              ⚡ Full-Stack Web Development (MERN & Next.js)
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              📌 Scalable & High-Performance Web Apps
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              🚀 UI/UX with Tailwind & Framer Motion
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              🔧 API Development & Integrations
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              📊 Database Management (MySQL & MongoDB)
+            </TextAnimate>
           </ul>
         </BentoCard>
         <BentoCard className="col-span-1 lg:row-span-3" title="📌 My Services">
           <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <li>💻 Full-Stack Web Development (Frontend & Backend)</li>
-            <li>📱 Responsive & Mobile-Friendly Design</li>
-            <li>⏳ Fast & On-Time Project Delivery</li>
-            <li>📂 Clean & Well-Structured Source Code</li>
-            <li>📝 Fully Commented & Maintainable Code</li>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              💻 Full-Stack Web Development (Frontend & Backend)
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              📱 Responsive & Mobile-Friendly Design
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              ⏳ Fast & On-Time Project Delivery
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              📂 Clean & Well-Structured Source Code
+            </TextAnimate>
+            <TextAnimate animation="blurIn" by="word" as="li" once>
+              📝 Fully Commented & Maintainable Code
+            </TextAnimate>
           </ul>
         </BentoCard>
         <BentoCard

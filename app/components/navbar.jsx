@@ -31,34 +31,55 @@ export default function Navbar() {
   });
 
   // Track scroll position to update active link
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+
+  //     // Find which section is currently in view
+  //     for (const link of links) {
+  //       const sectionId = link.href.substring(1);
+  //       const section = document.getElementById(sectionId);
+
+  //       if (section) {
+  //         const sectionTop = section.offsetTop;
+  //         const sectionBottom = sectionTop + section.offsetHeight;
+
+  //         if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+  //           setActiveLink(link.href);
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   // Initial check
+  //   handleScroll();
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // Scroll tracking
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      // Find which section is currently in view
-      for (const link of links) {
-        const sectionId = link.href.substring(1);
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setActiveLink(link.href);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`);
           }
-        }
-      }
-    };
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    // Initial check
-    handleScroll();
+    links.forEach((link) => {
+      const section = document.querySelector(link.href);
+      if (section) observer.observe(section);
+    });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => observer.disconnect();
   }, []);
 
   const mouseEnter = (e) => {
@@ -102,11 +123,9 @@ export default function Navbar() {
                 >
                   <Link href={link.href} legacyBehavior passHref>
                     <NavigationMenuLink
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        activeLink === link.href &&
-                          "bg-primary text-primary-foreground"
-                      )}
+                      className={`${navigationMenuTriggerStyle()} ${
+                        activeLink === link.href ? "bg-primary text-primary-foreground" : ""
+                      }`}
                       onClick={() => handleLinkClick(link.href)}
                     >
                       {link.txt}

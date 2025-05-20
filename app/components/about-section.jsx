@@ -1010,31 +1010,21 @@ export default function AboutSection() {
         About Me.
       </TextAnimate>
       <BentoGrid>
-        <BentoCard className="md:col-span-2 lg:row-span-3">
+        <BentoCard className="md:col-span-2 lg:row-span-3" dataAos="fade-right">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5">
             <div>
-              <TextAnimate
-                animation="slideUp"
-                by="word"
-                as="h3"
-                once
-                className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none"
+              <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none"
               >
                 👋 Hey, I'm M. Ahmed Sajid
-              </TextAnimate>
-              <TextAnimate
-                animation="blurIn"
-                by="word"
-                as="p"
-                once
-                className="max-w-lg text-neutral-400 group-hover:translate-x-3"
+              </h3>
+              <p className="max-w-lg text-neutral-400 group-hover:translate-x-3"
               >
                 I'm a passionate Full-Stack Developer with a love for building
                 scalable web applications. My expertise lies in Next.js, React,
                 and Node.js, and I enjoy crafting smooth user experiences. When
                 I'm not coding, you'll find me exploring new tech trends or
                 writing dev content on LinkedIn.
-              </TextAnimate>
+              </p>
               <div className="group-hover:translate-x-3 mt-2">
                 <Button>Let&apos;s Work Together</Button>
               </div>
@@ -1050,7 +1040,7 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-4 dark:hidden"
-          title="🛠️ My Tech Stack"
+          title="🛠️ My Tech Stack" dataAos="fade-left"
         >
           <IconCloud
             icons={[
@@ -1079,7 +1069,7 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-4 hidden dark:flex"
-          title="🛠️ My Tech Stack"
+          title="🛠️ My Tech Stack" dataAos="fade-left"
         >
           <IconCloud
             icons={[
@@ -1108,48 +1098,48 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-3"
-          title="🛠️ I Am Expert In"
+          title="🛠️ I Am Expert In" dataAos="fade-right"
         >
           <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            <li>
               ⚡ Full-Stack Web Development (MERN & Next.js)
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               📌 Scalable & High-Performance Web Apps
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               🚀 UI/UX with Tailwind & Framer Motion
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               🔧 API Development & Integrations
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               📊 Database Management (MySQL & MongoDB)
-            </TextAnimate>
+            </li>
           </ul>
         </BentoCard>
-        <BentoCard className="col-span-1 lg:row-span-3" title="📌 My Services">
+        <BentoCard className="col-span-1 lg:row-span-3" title="📌 My Services" dataAos="fade-up">
           <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            <li>
               💻 Full-Stack Web Development (Frontend & Backend)
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               📱 Responsive & Mobile-Friendly Design
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               ⏳ Fast & On-Time Project Delivery
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               📂 Clean & Well-Structured Source Code
-            </TextAnimate>
-            <TextAnimate animation="blurIn" by="word" as="li" once>
+            </li>
+            <li>
               📝 Fully Commented & Maintainable Code
-            </TextAnimate>
+            </li>
           </ul>
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-2 text-center"
-          title="📞 Contact Me"
+          title="📞 Contact Me" dataAos="fade-left"
         >
           <CopyButton
             txt="ahmedsajid1506@gmail.com"

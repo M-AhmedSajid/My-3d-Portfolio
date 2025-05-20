@@ -1,10 +1,20 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import CanvasLoader from "@/components/CanvasLoader";
+
+// Create a context to communicate the loading state
+import { useModelLoadContext } from "@/context/model-load-context";
 
 const Computers = ({ isMobile }) => {
+  const { modelLoaded, setModelLoaded } = useModelLoadContext();
   const computer = useGLTF("./desktop_pc/scene.gltf");
+
+  useEffect(() => {
+    // Once model is loaded (since this hook won't run until it's ready)
+    if (computer && computer.scene && !modelLoaded) {
+      setModelLoaded(true);
+    }
+  }, [computer, modelLoaded, setModelLoaded]);
 
   return (
     <mesh>
@@ -29,11 +39,12 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  const containerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [shouldLoadModel, setShouldLoadModel] = useState(false);
-
+  
   useEffect(() => {
+    // Preload the model when the component mounts
+    useGLTF.preload("./desktop_pc/scene.gltf");
+    
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
@@ -54,55 +65,31 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Use IntersectionObserver for both mobile and desktop
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          console.log("Component is visible, loading 3D model");
-          setShouldLoadModel(true);
-          observer.disconnect(); // load once
-        }
-      },
-      { threshold: 0.2 } // Trigger when 20% of the component is visible
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div
-      className="xl:flex-1 xl:h-auto md:h-[400px] h-[200px]"
-      ref={containerRef}
-    >
-      {shouldLoadModel && (
-        <Canvas
-          frameloop="demand"
-          shadows
-          dpr={[1, 2]}
-          camera={{ position: [20, 3, 5], fov: 25 }}
-          gl={{ preserveDrawingBuffer: true }}
-        >
-          <Suspense fallback={<CanvasLoader />}>
-            <OrbitControls
-              enableZoom={false}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 2}
-              autoRotate
-              autoRotateSpeed={1.5}
-              enableDamping
-              dampingFactor={0.05}
-            />
-            <Computers isMobile={isMobile} />
-          </Suspense>
-          <Preload all />
-        </Canvas>
-      )}
+    <div className="xl:flex-1 xl:h-auto md:h-[400px] h-[200px]">
+      <Canvas
+        frameloop="demand"
+        shadows
+        dpr={[1, 2]}
+        camera={{ position: [20, 3, 5], fov: 25 }}
+        gl={{ preserveDrawingBuffer: true }}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            autoRotate
+            autoRotateSpeed={1.5}
+            enableDamping
+            dampingFactor={0.05}
+          />
+          <Computers isMobile={isMobile} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
     </div>
   );
 };
+
 export default ComputersCanvas;

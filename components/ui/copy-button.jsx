@@ -15,7 +15,7 @@ export default function CopyButton({txt, className}) {
 
   return (
     <div className={cn("flex items-center justify-center space-x-3", className)}>
-    <TextAnimate animation="blurIn" by="word" as="p" once>{txt}</TextAnimate>
+    <p>{txt}</p>
       <Button
         variant="outline"
         size="icon"

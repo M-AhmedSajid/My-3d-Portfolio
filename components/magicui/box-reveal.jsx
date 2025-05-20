@@ -1,5 +1,6 @@
 "use client";
 
+import { useModelLoadContext } from "@/context/model-load-context";
 import { motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
 
@@ -15,15 +16,16 @@ export const BoxReveal = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const { modelLoaded } = useModelLoadContext();
   useEffect(() => {
-    if (isInView) {
+    if (isInView && modelLoaded) {
       slideControls.start("visible");
       mainControls.start("visible");
     } else {
       slideControls.start("hidden");
       mainControls.start("hidden");
     }
-  }, [isInView, mainControls, slideControls]);
+  }, [isInView, mainControls, modelLoaded, slideControls]);
 
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
@@ -34,7 +36,7 @@ export const BoxReveal = ({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: duration ? duration : 0.5, delay: 0.25 }}
+        transition={{ duration: duration ? duration : 0.5, delay: 1 }}
       >
         {children}
       </motion.div>
@@ -46,7 +48,7 @@ export const BoxReveal = ({
         }}
         initial="hidden"
         animate={slideControls}
-        transition={{ duration: duration ? duration : 0.5, ease: "easeIn", delay: 0.25 }}
+        transition={{ duration: duration ? duration : 0.5, ease: "easeIn", delay: 1 }}
         style={{
           position: "absolute",
           top: 4,

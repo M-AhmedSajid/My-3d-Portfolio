@@ -20,40 +20,40 @@ const projects = [
   {
     title: "Developer Junction Tech",
     des: "A professional IT services website offering web development, app development, and digital solutions. Built with a sleek and responsive design to showcase services, client testimonials, and a portfolio.",
-    thumb: "/devjunction-thumb.png",
-    lg: "/devjunction.png",
-    md: "/devjunction-md.png",
-    sm: "/devjunction-sm.png",
+    thumb: "/devjunction-thumb.webp",
+    lg: "/devjunction.webp",
+    md: "/devjunction-md.webp",
+    sm: "/devjunction-sm.webp",
     link: "https://www.devjunctiontech.com/",
     github: "https://github.com/",
   },
   {
     title: "Nexora",
     des: "A sleek and responsive website offering comprehensive social media marketing and digital services. Features include service packages, client testimonials, and a user-friendly interface.",
-    thumb: "/nexora-thumb.png",
-    lg: "/nexora.png",
-    md: "/nexora-md.png",
-    sm: "/nexora-sm.png",
+    thumb: "/nexora-thumb.webp",
+    lg: "/nexora.webp",
+    md: "/nexora-md.webp",
+    sm: "/nexora-sm.webp",
     link: "https://web-demo0.web.app/",
     github: "https://github.com/",
   },
   {
     title: "Spectra Tech Solutions",
     des: "A creative agency offering graphic design, video editing, web development, and content production — with a modern, responsive site showcasing services, portfolio, and testimonials.",
-    thumb: "/spectra-thumb.png",
-    lg: "/spectra.png",
-    md: "/spectra-md.png",
-    sm: "/spectra-sm.png",
+    thumb: "/spectra-thumb.webp",
+    lg: "/spectra.webp",
+    md: "/spectra-md.webp",
+    sm: "/spectra-sm.webp",
     link: "https://www.spectratechsolutions.org/",
     github: "https://github.com/",
   },
   {
     title: "Smart Website",
     des: "A sleek, responsive Bootstrap template for an online data tracking tool — includes service details, team profiles, pricing, and a blog section.",
-    thumb: "/smart-thumb.png",
-    lg: "/smart.png",
-    md: "/smart-md.png",
-    sm: "/smart-sm.png",
+    thumb: "/smart-thumb.webp",
+    lg: "/smart.webp",
+    md: "/smart-md.webp",
+    sm: "/smart-sm.webp",
     link: "https://fir-hosting-f8388.web.app/",
     github: "https://github.com/",
   },
@@ -86,7 +86,7 @@ const screenSizes = [
 
 export default function ProjectsSection() {
   return (
-    <section id="work">
+    <section id="work" className="!mt-0">
       <TextAnimate
         animation="slideLeft"
         by="character"

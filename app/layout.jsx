@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/lib/theme-provider";
 import Loader from "./components/loader";
 import { AOSInit } from "@/lib/aos-init";
 import { ModelLoadProvider } from "@/context/model-load-context";
-import ModelPreloader from "@/lib/model-preloader";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -32,7 +31,6 @@ export default function RootLayout({ children }) {
           <CursorProvider>
             <ModelLoadProvider>
               <Loader />
-              <ModelPreloader />
               <Cursor />
               <Navbar />
               {children}

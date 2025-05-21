@@ -1,10 +1,14 @@
 "use client";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import React, { useRef, useState } from "react";
-import ComputersCanvas from "./canvas/Computer";
 import { Button } from "@/components/ui/button";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import emailjs from "@emailjs/browser";
+import dynamic from "next/dynamic";
+
+const ComputersCanvas = dynamic(() => import("./canvas/Computer"), {
+  ssr: false,
+});
 
 export default function ContactSection() {
   const formRef = useRef();

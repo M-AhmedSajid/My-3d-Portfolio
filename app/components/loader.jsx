@@ -23,8 +23,8 @@ export default function Loader() {
 
   return (
     <div
-      className={`w-screen h-screen z-[99] flex flex-col justify-center items-center fixed duration-1000 transition-all bg-white dark:bg-black ${
-        isLoading ? "top-0" : "-top-[130%]"
+      className={`w-screen h-screen z-[99] flex flex-col justify-center items-center fixed duration-1000 transition-transform bg-white dark:bg-black top-0 ${
+        isLoading ? "" : "-translate-y-full"
       }`}
     >
       <div className="spinner">

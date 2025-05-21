@@ -1,6 +1,10 @@
+"use client";
 import { TextAnimate } from "@/components/magicui/text-animate";
-import Timeline from "@/components/timeline";
+import dynamic from "next/dynamic";
 import React from "react";
+const Timeline = dynamic(() => import("@/components/timeline"), {
+  ssr: false,
+});
 
 export default function ExpSection() {
   return (

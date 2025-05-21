@@ -999,7 +999,7 @@ const DarkIcons = {
 
 export default function AboutSection() {
   return (
-    <section id="about">
+    <section id="about" className="overflow-hidden pb-10">
       <TextAnimate
         animation="slideLeft"
         by="character"
@@ -1030,7 +1030,7 @@ export default function AboutSection() {
               </div>
             </div>
             <Image
-              src="/profile-photo.png"
+              src="/profile-photo.webp"
               alt="Profile Picture of Muhammad Ahmed Sajid"
               width={200}
               height={200}

@@ -100,7 +100,7 @@ export default function ProjectsSection() {
         {projects.map((project) => (
           <Drawer key={project.title}>
             <DrawerTrigger>
-              <MagicCard className="cursor-pointer flex-col items-center justify-center text-4xl aspect-square">
+              <MagicCard className="cursor-pointer flex-col items-center justify-center text-4xl aspect-square shadow-lg">
                 <Image
                   src={project.thumb}
                   fill
@@ -121,18 +121,20 @@ export default function ProjectsSection() {
                 defaultValue="desktop"
                 className="flex flex-col items-center"
               >
-                <TabsList className="mb-3">
-                  {screenSizes.map((screen) => (
-                    <TabsTrigger key={screen.value} value={screen.value}>
-                      {screen.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+                <div className="pb-3 mt-3 sticky top-0 z-10 w-full justify-center bg-background flex items-center">
+                  <TabsList>
+                    {screenSizes.map((screen) => (
+                      <TabsTrigger key={screen.value} value={screen.value}>
+                        {screen.label}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
 
                 {screenSizes.map((screen) => (
                   <TabsContent key={screen.value} value={screen.value}>
                     <div
-                      className={`${screen.maxWidth} mx-auto w-full relative h-[19.375rem] overflow-auto scroll-image`}
+                      className={`${screen.maxWidth} mx-auto w-full relative h-full md:h-[19.375rem] md:overflow-auto md:scroll-image`}
                     >
                       <Image
                         src={project[screen.imgKey]}

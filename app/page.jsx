@@ -12,7 +12,7 @@ export default function Home() {
       <WarpBackground beamsPerSide={2} beamSize={10}>
         <HeroSection />
       </WarpBackground>
-      <div className="relative dark:bg-background z-10 px-3 py-10 space-y-10">
+      <div className="relative dark:bg-background z-10 px-3 pt-10 space-y-10">
         <AboutSection />
         <ProjectsSection />
         <ExpSection />

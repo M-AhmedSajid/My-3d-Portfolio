@@ -68,7 +68,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative overflow-hidden" id="contact">
+    <section className="relative overflow-hidden pb-10" id="contact">
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.25}

@@ -2,8 +2,9 @@ import { IconCloud } from "@/components/magicui/icon-cloud";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
-import CopyButton from "@/components/ui/copy-button";
+import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 // Light Mode Icons
@@ -997,6 +998,30 @@ const DarkIcons = {
   ),
 };
 
+// Social Links
+const social = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/ahmedsajid/",
+    Icon: <Linkedin />,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/M-AhmedSajid/",
+    Icon: <Github />,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/muhammadahmedsajid01/",
+    Icon: <Facebook />,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/muhammadahmedsajid01",
+    Icon: <Instagram />,
+  },
+];
+
 export default function AboutSection() {
   return (
     <section id="about" className="overflow-hidden pb-10">
@@ -1013,12 +1038,10 @@ export default function AboutSection() {
         <BentoCard className="md:col-span-2 lg:row-span-3" dataAos="fade-right">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5">
             <div>
-              <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none"
-              >
+              <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
                 👋 Hey, I'm M. Ahmed Sajid
               </h3>
-              <p className="max-w-lg text-neutral-400 group-hover:translate-x-3"
-              >
+              <p className="max-w-lg text-neutral-400 group-hover:translate-x-3">
                 I'm a passionate Full-Stack Developer with a love for building
                 scalable web applications. My expertise lies in Next.js, React,
                 and Node.js, and I enjoy crafting smooth user experiences. When
@@ -1026,7 +1049,9 @@ export default function AboutSection() {
                 writing dev content on LinkedIn.
               </p>
               <div className="group-hover:translate-x-3 mt-2">
-                <Button>Let&apos;s Work Together</Button>
+                <Link href="#contact">
+                  <Button asChild>Let&apos;s Work Together</Button>
+                </Link>
               </div>
             </div>
             <Image
@@ -1040,7 +1065,8 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-4 dark:hidden"
-          title="🛠️ My Tech Stack" dataAos="fade-left"
+          title="🛠️ My Tech Stack"
+          dataAos="fade-left"
         >
           <IconCloud
             icons={[
@@ -1069,7 +1095,8 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-4 hidden dark:flex"
-          title="🛠️ My Tech Stack" dataAos="fade-left"
+          title="🛠️ My Tech Stack"
+          dataAos="fade-left"
         >
           <IconCloud
             icons={[
@@ -1098,46 +1125,51 @@ export default function AboutSection() {
         </BentoCard>
         <BentoCard
           className="col-span-1 lg:row-span-3"
-          title="🛠️ I Am Expert In" dataAos="fade-right"
+          title="🛠️ I Am Expert In"
+          dataAos="fade-right"
         >
           <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <li>
-              ⚡ Full-Stack Web Development (MERN & Next.js)
-            </li>
-            <li>
-              📌 Scalable & High-Performance Web Apps
-            </li>
-            <li>
-              🚀 UI/UX with Tailwind & Framer Motion
-            </li>
-            <li>
-              🔧 API Development & Integrations
-            </li>
-            <li>
-              📊 Database Management (MySQL & MongoDB)
-            </li>
-          </ul>
-        </BentoCard>
-        <BentoCard className="col-span-1 lg:row-span-3" title="📌 My Services" dataAos="fade-up">
-          <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
-            <li>
-              💻 Full-Stack Web Development (Frontend & Backend)
-            </li>
-            <li>
-              📱 Responsive & Mobile-Friendly Design
-            </li>
-            <li>
-              ⏳ Fast & On-Time Project Delivery
-            </li>
-            <li>
-              📂 Clean & Well-Structured Source Code
-            </li>
-            <li>
-              📝 Fully Commented & Maintainable Code
-            </li>
+            <li>⚡ Full-Stack Web Development (MERN & Next.js)</li>
+            <li>📌 Scalable & High-Performance Web Apps</li>
+            <li>🚀 UI/UX with Tailwind & Framer Motion</li>
+            <li>🔧 API Development & Integrations</li>
+            <li>📊 Database Management (MySQL & MongoDB)</li>
           </ul>
         </BentoCard>
         <BentoCard
+          className="col-span-1 lg:row-span-3"
+          title="📌 My Services"
+          dataAos="fade-up"
+        >
+          <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
+            <li>💻 Full-Stack Web Development (Frontend & Backend)</li>
+            <li>📱 Responsive & Mobile-Friendly Design</li>
+            <li>⏳ Fast & On-Time Project Delivery</li>
+            <li>📂 Clean & Well-Structured Source Code</li>
+            <li>📝 Fully Commented & Maintainable Code</li>
+          </ul>
+        </BentoCard>
+        <BentoCard
+          className="col-span-1 lg:row-span-2 text-center"
+          title="💬 Connect With Me"
+          dataAos="fade-left"
+        >
+          <div className="flex justify-center items-center space-x-5 mt-3 group-hover:translate-x-3">
+            {social.map((item) => (
+              <Link key={item.name} href={item.href} target="_blank">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 w-12 [&_svg]:size-5"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  {item.Icon}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        </BentoCard>
+        {/* <BentoCard
           className="col-span-1 lg:row-span-2 text-center"
           title="📞 Contact Me" dataAos="fade-left"
         >
@@ -1149,7 +1181,7 @@ export default function AboutSection() {
             txt="+92 3252208182"
             className="group-hover:translate-x-3 text-xl/5"
           />
-        </BentoCard>
+        </BentoCard> */}
       </BentoGrid>
     </section>
   );

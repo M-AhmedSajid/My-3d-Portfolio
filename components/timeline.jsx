@@ -41,6 +41,9 @@ const exp = [
       "Writing clean, maintainable, and efficient code using HTML, CSS, and JavaScript",
     ],
   },
+];
+
+const edu = [
   {
     date: "2025 - Present",
     title: "Bachelor of Engineering in Software Engineering",
@@ -59,9 +62,9 @@ const exp = [
     icon: <School />,
     subtitle: "Metro Foundation School",
   },
-];
+]
 
-export default function Timeline() {
+export function Timeline() {
   const { resolvedTheme, theme, systemTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
@@ -124,6 +127,108 @@ export default function Timeline() {
   return (
     <VerticalTimeline lineColor={styles.lineColor}>
       {exp.map((item, index) => (
+        <VerticalTimelineElement
+          key={index}
+          contentStyle={styles.contentStyle}
+          contentArrowStyle={styles.contentArrowStyle}
+          date={item.date}
+          dateClassName={styles.dateClass}
+          iconStyle={styles.iconStyle}
+          icon={item.icon}
+        >
+          <div>
+            <h3 className={`text-2xl font-bold ${styles.titleClass}`}>
+              {item.title}
+            </h3>
+            <p
+              className={`${styles.subtitleClass} text-base font-semibold`}
+              style={{ margin: 0 }}
+            >
+              {item.subtitle}
+            </p>
+          </div>
+          {item.points && (
+            <ul className="mt-5 list-disc ml-5 space-y-2">
+              {item.points.map((point, index) => (
+                <li
+                  key={index}
+                  className={`${styles.textClass} text-sm pl-1 tracking-wider`}
+                >
+                  {point}
+                </li>
+              ))}
+            </ul>
+          )}
+        </VerticalTimelineElement>
+      ))}
+      <VerticalTimelineElement iconStyle={styles.iconStyle} icon={<Flag />} />
+    </VerticalTimeline>
+  );
+}
+
+export function Timeline2() {
+  const { resolvedTheme, theme, systemTheme } = useTheme();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // If theme is set to 'system', use the system preference
+    // Otherwise use the explicitly set theme
+    const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
+    setIsDark(currentTheme === "dark");
+  }, [resolvedTheme, theme, systemTheme]);
+
+  // Theme-dependent styles
+  const timelineStyles = {
+    dark: {
+      lineColor: "#fff",
+      contentStyle: {
+        background: "#000",
+        color: "#f9fafb",
+        borderRadius: "0.5rem",
+        boxShadow: "0 3px 0 hsl(204 70% 53%)",
+      },
+      contentArrowStyle: {
+        borderRight: "7px solid hsl(204 70% 53%)",
+      },
+      iconStyle: {
+        background: "hsl(204 70% 53%)",
+        color: "#ffffff",
+      },
+      titleClass: "text-gray-50",
+      subtitleClass: "text-gray-400",
+      textClass: "text-gray-300",
+      dateClass: "text-gray-400",
+    },
+    light: {
+      lineColor: "#000",
+      contentStyle: {
+        background: "#ffffff",
+        color: "#111827",
+        borderRadius: "0.5rem",
+        boxShadow:
+          "0 0 0 1px rgba(0,0,0,.03),0 2px 4px rgba(0,0,0,.05),0 12px 24px rgba(0,0,0,.05)",
+        borderBottom: "3px solid hsl(204 70% 53%)",
+      },
+      contentArrowStyle: {
+        borderRight: "7px solid hsl(204 70% 53%)",
+      },
+      iconStyle: {
+        background: "hsl(204 70% 53%)",
+        color: "#ffffff",
+      },
+      titleClass: "text-gray-900",
+      subtitleClass: "text-gray-600",
+      textClass: "text-gray-700",
+      dateClass: "text-gray-600",
+    },
+  };
+
+  // Use the appropriate styles based on theme
+  const styles = isDark ? timelineStyles.dark : timelineStyles.light;
+
+  return (
+    <VerticalTimeline lineColor={styles.lineColor}>
+      {edu.map((item, index) => (
         <VerticalTimelineElement
           key={index}
           contentStyle={styles.contentStyle}

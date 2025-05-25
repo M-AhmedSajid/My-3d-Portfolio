@@ -16,11 +16,19 @@ export default function HeroSection() {
         </Title>
         <div className="flex justify-center items-center space-x-5">
           <BoxReveal>
-            <Button>Hire Me</Button>
+            <Link href="#contact">
+              <Button asChild>Hire Me</Button>
+            </Link>
           </BoxReveal>
           <BoxReveal>
-            <Link href="#" className="hover:text-primary duration-300">
-              Learn More →
+            <Link
+              href="/Muhammad Ahmed Sajid - Resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary duration-300"
+            >
+              Download Resume →
             </Link>
           </BoxReveal>
         </div>

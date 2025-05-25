@@ -40,8 +40,8 @@ const DrawerContent = forwardRef(
         )}
         {...props}
       >
-        <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
-        <div className="container">{children}</div>
+        <div className="mx-auto my-4 h-2 w-[100px] rounded-full bg-muted" />
+        <div className="container overflow-auto">{children}</div>
       </DrawerPrimitive.Content>
     </DrawerPortal>
   )
@@ -49,13 +49,13 @@ const DrawerContent = forwardRef(
 DrawerContent.displayName = "DrawerContent";
 
 const DrawerHeader = ({ className, ...props }) => (
-  <div className={cn("grid gap-1.5 p-4 text-center", className)} {...props} />
+  <div className={cn("grid gap-1.5 px-4 text-center", className)} {...props} />
 );
 DrawerHeader.displayName = "DrawerHeader";
 
 const DrawerFooter = ({ className, ...props }) => (
   <div
-    className={cn("mt-auto flex justify-center gap-2 p-4", className)}
+    className={cn("mt-auto flex justify-center gap-2 p-4 sticky bottom-0 bg-background", className)}
     {...props}
   />
 );

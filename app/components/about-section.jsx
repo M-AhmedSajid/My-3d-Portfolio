@@ -1041,7 +1041,7 @@ export default function AboutSection() {
               <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
                 👋 Hey, I'm M. Ahmed Sajid
               </h3>
-              <p className="max-w-lg text-neutral-400 group-hover:translate-x-3">
+              <p className="max-w-lg text-gray-600 dark:text-gray-400 group-hover:translate-x-3">
                 I'm a passionate Full-Stack Developer with a love for building
                 scalable web applications. My expertise lies in Next.js, React,
                 and Node.js, and I enjoy crafting smooth user experiences. When
@@ -1128,7 +1128,7 @@ export default function AboutSection() {
           title="🛠️ I Am Expert In"
           dataAos="fade-right"
         >
-          <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
+          <ul className="space-y-2 text-gray-600 dark:text-gray-400 group-hover:translate-x-3 ml-2">
             <li>⚡ Full-Stack Web Development (MERN & Next.js)</li>
             <li>📌 Scalable & High-Performance Web Apps</li>
             <li>🚀 UI/UX with Tailwind & Framer Motion</li>
@@ -1141,7 +1141,7 @@ export default function AboutSection() {
           title="📌 My Services"
           dataAos="fade-up"
         >
-          <ul className="space-y-2 text-neutral-400 group-hover:translate-x-3 ml-2">
+          <ul className="space-y-2 text-gray-600 dark:text-gray-400 group-hover:translate-x-3 ml-2">
             <li>💻 Full-Stack Web Development (Frontend & Backend)</li>
             <li>📱 Responsive & Mobile-Friendly Design</li>
             <li>⏳ Fast & On-Time Project Delivery</li>

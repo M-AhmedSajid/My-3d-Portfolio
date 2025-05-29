@@ -30,37 +30,6 @@ export default function Navbar() {
     opacity: 0,
   });
 
-  // Track scroll position to update active link
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-
-  //     // Find which section is currently in view
-  //     for (const link of links) {
-  //       const sectionId = link.href.substring(1);
-  //       const section = document.getElementById(sectionId);
-
-  //       if (section) {
-  //         const sectionTop = section.offsetTop;
-  //         const sectionBottom = sectionTop + section.offsetHeight;
-
-  //         if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-  //           setActiveLink(link.href);
-  //           break;
-  //         }
-  //       }
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   // Initial check
-  //   handleScroll();
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
   // Scroll tracking
   useEffect(() => {
     const observer = new IntersectionObserver(

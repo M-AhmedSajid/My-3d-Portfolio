@@ -70,7 +70,7 @@ export function MagicCard({
       ref={cardRef}
       className={cn("group relative flex size-full rounded-xl", className)} data-aos="zoom-in"
     >
-      <div className="absolute inset-px z-10 rounded-xl bg-background" />
+      <div className="absolute inset-px z-10 rounded-xl bg-white dark:bg-black " />
       <div className="relative z-30 h-full w-full">{children}</div>
       <motion.div
         className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"

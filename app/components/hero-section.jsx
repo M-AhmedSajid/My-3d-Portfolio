@@ -12,7 +12,7 @@ export default function HeroSection() {
           Hi, I&apos;m M. Ahmed Sajid
         </Title>
         <Title Comp="h3" size={50} className="my-6 text-2xl md:text-4xl">
-          Passionate Web Developer 🚀 &#38; Creative Designer 🎨
+          Full Stack Developer 💻 | Making Web Development Easy 🛠️
         </Title>
         <div className="flex justify-center items-center space-x-5">
           <BoxReveal>

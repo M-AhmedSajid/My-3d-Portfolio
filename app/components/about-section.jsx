@@ -1002,7 +1002,7 @@ const DarkIcons = {
 const social = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/ahmedsajid/",
+    href: "https://www.linkedin.com/in/m-ahmed-sajid/",
     Icon: <Linkedin />,
   },
   {
@@ -1042,11 +1042,7 @@ export default function AboutSection() {
                 👋 Hey, I'm M. Ahmed Sajid
               </h3>
               <p className="max-w-lg text-gray-600 dark:text-gray-400 group-hover:translate-x-3">
-                I'm a passionate Full-Stack Developer with a love for building
-                scalable web applications. My expertise lies in Next.js, React,
-                and Node.js, and I enjoy crafting smooth user experiences. When
-                I'm not coding, you'll find me exploring new tech trends or
-                writing dev content on LinkedIn.
+                I'm Ahmed, a passionate Web Developer 💻 and Full Stack MERN Developer 🚀 with 2 years of experience. I build websites that not only look great but solve real business problems 🛠️. From small sites to complex apps 🧩, I create secure, user-friendly solutions that help businesses grow 📈.
               </p>
               <div className="group-hover:translate-x-3 mt-2">
                 <Link href="#contact">

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { AvatarCircles } from "@/components/magicui/avatar-circles";
 import { Tilt } from "react-tilt";
@@ -41,9 +40,17 @@ const screenSizes = [
   },
 ];
 
-export default function ProjectCard({ thumb, title, des, techs, pics, link, github }) {
+export default function ProjectCard({
+  thumb,
+  title,
+  des,
+  techs,
+  pics,
+  link,
+  github,
+}) {
   return (
-    <div className="w-full md:w-1/2 xl:w-1/3 md:p-3.5 p-2" data-aos="zoom-in">
+    <div className="w-full md:w-1/2 xl:w-1/3 md:p-3.5 p-2">
       <Drawer>
         <DrawerTrigger>
           <Tilt
@@ -107,12 +114,19 @@ export default function ProjectCard({ thumb, title, des, techs, pics, link, gith
                 Live Preview
               </Button>
             </Link>
-            <Link href={github} target="_blank">
-              <Button variant="outline" asChild>
+            {github === "" ? (
+              <Button variant="outline" disabled>
                 <Github />
                 Github
               </Button>
-            </Link>
+            ) : (
+              <Link href={github} target="_blank">
+                <Button variant="outline" asChild>
+                  <Github />
+                  Github
+                </Button>
+              </Link>
+            )}
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

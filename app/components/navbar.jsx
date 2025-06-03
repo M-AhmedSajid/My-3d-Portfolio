@@ -18,6 +18,7 @@ const links = [
   { txt: "About", href: "#about" },
   { txt: "Work", href: "#work" },
   { txt: "Experience", href: "#exp" },
+  { txt: "Certificates", href: "#certificates" },
   { txt: "Contact", href: "#contact" },
 ];
 

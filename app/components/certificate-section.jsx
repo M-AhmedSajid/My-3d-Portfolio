@@ -362,7 +362,7 @@ export default function CertificateSection() {
       >
         Certificates.
       </TextAnimate>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 container">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 container pb-5">
         {certificates.map((certificate) => (
           <CertificateCard key={certificate.title} {...certificate} />
         ))}

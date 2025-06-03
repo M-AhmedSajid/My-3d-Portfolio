@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
+import { useToast } from "@/hooks/use-toast";
 
 const ComputersCanvas = dynamic(() => import("./canvas/Computer"), {
   ssr: false,
@@ -12,6 +13,7 @@ const ComputersCanvas = dynamic(() => import("./canvas/Computer"), {
 
 export default function ContactSection() {
   const formRef = useRef();
+  const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,6 +21,49 @@ export default function ContactSection() {
   });
 
   const [loading, setLoading] = useState(false);
+  const validateForm = () => {
+    const missingFields = [];
+
+    // Name validation
+    if (!form.name.trim()) {
+      missingFields.push("Full Name");
+    } else if (form.name.trim().length < 2) {
+      missingFields.push("Valid Full Name (at least 2 characters)");
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!form.email.trim()) {
+      missingFields.push("Email Address");
+    } else if (!emailRegex.test(form.email)) {
+      missingFields.push("Valid Email Address");
+    }
+
+    // Message validation
+    if (!form.message.trim()) {
+      missingFields.push("Message");
+    } else if (form.message.trim().length < 10) {
+      missingFields.push("Message (at least 10 characters)");
+    } else if (form.message.trim().length > 1000) {
+      missingFields.push("Message (under 1000 characters)");
+    }
+
+    if (missingFields.length > 0) {
+      const errorMessage =
+        missingFields.length === 1
+          ? `Please provide: ${missingFields[0]}`
+          : `Please provide: ${missingFields.join(", ")}`;
+
+      toast({
+        title: "Missing Information",
+        description: errorMessage,
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    return true;
+  };
 
   const handleChange = (e) => {
     const { target } = e;
@@ -32,6 +77,12 @@ export default function ContactSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate form before submission
+    if (!validateForm()) {
+      return;
+    }
+
     setLoading(true);
 
     emailjs
@@ -50,7 +101,11 @@ export default function ContactSection() {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          toast({
+            title: "Message Sent!",
+            description:
+              "Thank you for your message. I will get back to you as soon as possible.",
+          });
 
           setForm({
             name: "",
@@ -62,7 +117,11 @@ export default function ContactSection() {
           setLoading(false);
           console.error(error);
 
-          alert("Ahh, something went wrong. Please try again.");
+          toast({
+            title: "Error",
+            description: "Something went wrong. Please try again later.",
+            variant: "destructive",
+          });
         }
       );
   };
@@ -127,9 +186,14 @@ export default function ContactSection() {
                 placeholder="Please describe how I can assist you."
                 className="bg-tertiary py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
               />
+              <div className="flex justify-end">
+                <span className="text-gray-500 text-sm mt-1">
+                  {form.message.length}/1000
+                </span>
+              </div>
             </label>
 
-            <Button className="w-full">
+            <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Sending..." : "Send"}
             </Button>
           </form>

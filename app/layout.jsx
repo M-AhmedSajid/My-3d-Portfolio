@@ -8,14 +8,16 @@ import Loader from "./components/loader";
 import { AOSInit } from "@/lib/aos-init";
 import { ModelLoadProvider } from "@/context/model-load-context";
 import Footer from "./components/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "Muhammad Ahmed Sajid",
-  description: "Passionate Web Developer 🚀 & Creative Designer 🎨",
+  title: "Muhammad Ahmed Sajid - Portfolio",
+  description:
+    "I'm Ahmed, a passionate Web Developer and Full Stack MERN Developer with 2 years of experience. I build websites that not only look great but solve real business problems. From small sites to complex apps, I create secure, user-friendly solutions that help businesses grow.",
 };
 
 export default function RootLayout({ children }) {
@@ -33,6 +35,7 @@ export default function RootLayout({ children }) {
             <ModelLoadProvider>
               <Loader />
               <Cursor />
+              <Toaster />
               <Navbar />
               {children}
               <Footer />

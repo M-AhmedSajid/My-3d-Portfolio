@@ -11,9 +11,11 @@ export default function HeroSection() {
         <Title Comp="h2" size={100} className="text-7xl md:text-8xl">
           Hi, I&apos;m M. Ahmed Sajid
         </Title>
-        <Title Comp="h3" size={50} className="my-6 text-2xl md:text-4xl">
-          Full Stack Developer 💻 | Making Web Development Easy 🛠️
-        </Title>
+        <BoxReveal>
+          <Title Comp="h3" size={50} className="my-6 text-2xl md:text-4xl">
+            Full Stack Developer 💻 | Making Web Development Easy 🛠️
+          </Title>
+        </BoxReveal>
         <div className="flex justify-center items-center space-x-5">
           <BoxReveal>
             <Link href="#contact">

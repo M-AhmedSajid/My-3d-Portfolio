@@ -1,11 +1,14 @@
-import { IconCloud } from "@/components/magicui/icon-cloud";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
 import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+const IconCloud = dynamic(() =>
+  import("@/components/magicui/icon-cloud").then((mod) => mod.IconCloud)
+);
 
 // Light Mode Icons
 const Icons = {
@@ -1042,7 +1045,11 @@ export default function AboutSection() {
                 👋 Hey, I'm M. Ahmed Sajid
               </h3>
               <p className="max-w-lg text-gray-600 dark:text-gray-400 group-hover:translate-x-3">
-                I'm Ahmed, a passionate Web Developer 💻 and Full Stack MERN Developer 🚀 with 2 years of experience. I build websites that not only look great but solve real business problems 🛠️. From small sites to complex apps 🧩, I create secure, user-friendly solutions that help businesses grow 📈.
+                I'm Ahmed, a passionate Web Developer 💻 and Full Stack MERN
+                Developer 🚀 with 2 years of experience. I build websites that
+                not only look great but solve real business problems 🛠️. From
+                small sites to complex apps 🧩, I create secure, user-friendly
+                solutions that help businesses grow 📈.
               </p>
               <div className="group-hover:translate-x-3 mt-2">
                 <Link href="#contact">

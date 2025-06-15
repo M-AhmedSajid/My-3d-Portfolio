@@ -2,13 +2,15 @@
 
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 export const AOSInit = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 500,
-      once: true,
+    // Dynamically load the CSS so it's not render-blocking
+    import("aos/dist/aos.css").then(() => {
+      AOS.init({
+        duration: 500,
+        once: true,
+      });
     });
   }, []);
 

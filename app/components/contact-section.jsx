@@ -115,8 +115,6 @@ export default function ContactSection() {
         },
         (error) => {
           setLoading(false);
-          console.error(error);
-
           toast({
             title: "Error",
             description: "Something went wrong. Please try again later.",

@@ -5,10 +5,13 @@ import { CursorProvider } from "@/context/cursor-context";
 import Cursor from "@/lib/cursor";
 import { ThemeProvider } from "@/lib/theme-provider";
 import Loader from "./components/loader";
-import { AOSInit } from "@/lib/aos-init";
 import { ModelLoadProvider } from "@/context/model-load-context";
 import Footer from "./components/footer";
 import { Toaster } from "@/components/ui/toaster";
+import dynamic from "next/dynamic";
+const AOSInit = dynamic(() =>
+  import("@/lib/aos-init").then((mod) => mod.AOSInit)
+);
 
 const gabarito = Gabarito({
   subsets: ["latin"],

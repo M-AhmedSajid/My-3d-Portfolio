@@ -1,25 +1,20 @@
 "use client";
 import { WordRotate } from "@/components/magicui/word-rotate";
-import { useModelLoadContext } from "@/context/model-load-context";
 import React, { useEffect, useState } from "react";
 
 export default function Loader() {
   const [isLoading, setIsLoading] = useState(true);
   const [initialTxt, setInitialTxt] = useState(true);
-  const { modelLoaded } = useModelLoadContext();
 
   useEffect(() => {
     setInitialTxt(false);
 
-    // Only hide the loader when the 3D model is loaded
-    if (modelLoaded) {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 300); // Small delay after model loads to ensure smooth transition
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Small delay after model loads to ensure smooth transition
 
-      return () => clearTimeout(timer);
-    }
-  }, [modelLoaded]);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -39,13 +34,14 @@ export default function Loader() {
       {/* Loading message with subtle animation */}
       <div className="text-center mt-10">
         {initialTxt ? (
-          <p className="text-lg font-medium text-primary py-2">Initializing...</p>
+          <p className="text-lg font-medium text-primary py-2">
+            Initializing...
+          </p>
         ) : (
           <WordRotate
             words={[
               "Loading 3D assets...",
               "Preparing environment...",
-              "Rendering models...",
             ]}
             className="text-lg font-medium text-primary"
           />

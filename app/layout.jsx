@@ -5,12 +5,11 @@ import { CursorProvider } from "@/context/cursor-context";
 import Cursor from "@/lib/cursor";
 import { ThemeProvider } from "@/lib/theme-provider";
 import Loader from "./components/loader";
-import { ModelLoadProvider } from "@/context/model-load-context";
 import Footer from "./components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import dynamic from "next/dynamic";
 const AOSInit = dynamic(() =>
-  import("@/lib/aos-init").then((mod) => mod.AOSInit)
+  import("@/lib/aos-init").then((mod) => mod.AOSInit),
 );
 
 const gabarito = Gabarito({
@@ -59,14 +58,12 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <CursorProvider>
-            <ModelLoadProvider>
-              <Loader />
-              <Cursor />
-              <Toaster />
-              <Navbar />
-              {children}
-              <Footer />
-            </ModelLoadProvider>
+            <Loader />
+            <Cursor />
+            <Toaster />
+            <Navbar />
+            {children}
+            <Footer />
           </CursorProvider>
         </ThemeProvider>
       </body>

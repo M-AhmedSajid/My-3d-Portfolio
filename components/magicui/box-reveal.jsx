@@ -1,6 +1,5 @@
 "use client";
 
-import { useModelLoadContext } from "@/context/model-load-context";
 import { motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
 
@@ -15,14 +14,13 @@ export const BoxReveal = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const { modelLoaded } = useModelLoadContext();
   useEffect(() => {
-    if (isInView && modelLoaded) {
+    if (isInView) {
       slideControls.start("visible");
     } else {
       slideControls.start("hidden");
     }
-  }, [isInView, modelLoaded, slideControls]);
+  }, [isInView, slideControls]);
 
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>

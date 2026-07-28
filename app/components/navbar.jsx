@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full px-8 py-4">
+      <header className="fixed top-0 z-50 w-full px-8 py-4 [html:data-scroll-locked=1]:pr-[15px]">
         <div className="lg:relative mx-auto flex flex-row justify-between items-center lg:justify-center rounded-full border p-2 px-4 lg:px-2 shadow-sm backdrop-blur transition-colors lg:w-fit bg-white dark:bg-black">
           <NavigationMenu>
             <NavigationMenuList>

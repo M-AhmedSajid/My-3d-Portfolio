@@ -72,6 +72,27 @@ body {
     overflow-y: overlay;
     scroll-behavior: smooth;
   }
+
+  html[data-scroll-locked] {
+    overflow: hidden !important;
+    overscroll-behavior: contain;
+    margin-right: 15px !important;
+  }
+  html[data-scroll-locked] header {
+    padding-right: calc(32px + 15px);
+  }
+
+  html[data-scroll-locked]::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  html[data-scroll-locked] {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
   .scroll-image::-webkit-scrollbar {
     width: 8px;
   }

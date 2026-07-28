@@ -8,6 +8,7 @@ import Loader from "./components/loader";
 import Footer from "./components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import dynamic from "next/dynamic";
+import PortfolioChatbot from "./components/portfolio-chatbot";
 const AOSInit = dynamic(() =>
   import("@/lib/aos-init").then((mod) => mod.AOSInit),
 );
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
             <Loader />
             <Cursor />
             <Toaster />
+            <PortfolioChatbot />
             <Navbar />
             {children}
             <Footer />

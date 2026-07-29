@@ -1,13 +1,13 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
-import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Facebook, GitHub, Instagram, Linkedin } from "react-feather";
 const IconCloud = dynamic(() =>
-  import("@/components/magicui/icon-cloud").then((mod) => mod.IconCloud)
+  import("@/components/magicui/icon-cloud").then((mod) => mod.IconCloud),
 );
 
 // Light Mode Icons
@@ -1011,7 +1011,7 @@ const social = [
   {
     name: "GitHub",
     href: "https://github.com/M-AhmedSajid/",
-    Icon: <Github />,
+    Icon: <GitHub />,
   },
   {
     name: "Facebook",
@@ -1031,7 +1031,7 @@ export default function AboutSection() {
       <TextAnimate
         animation="slideLeft"
         by="character"
-        as="h2"
+       
         once
         className="text-center mb-5 text-4xl font-bold"
       >
@@ -1042,10 +1042,10 @@ export default function AboutSection() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5">
             <div>
               <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 group-hover:translate-x-3 pointer-events-none select-none">
-                👋 Hey, I'm M. Ahmed Sajid
+                👋 Hey, I&apos;m M. Ahmed Sajid
               </h3>
               <p className="max-w-lg text-gray-600 dark:text-gray-400 group-hover:translate-x-3">
-                I'm Ahmed, a passionate Web Developer 💻 and Full Stack MERN
+                I&apos;m Ahmed, a passionate Web Developer 💻 and Full Stack MERN
                 Developer 🚀 with 2 years of experience. I build websites that
                 not only look great but solve real business problems 🛠️. From
                 small sites to complex apps 🧩, I create secure, user-friendly

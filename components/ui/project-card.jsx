@@ -14,7 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
 import Link from "next/link";
 import { Button } from "./button";
-import { Github, Maximize } from "lucide-react";
+import { GitHub, Maximize } from "react-feather";
 
 const screenSizes = [
   {
@@ -23,6 +23,7 @@ const screenSizes = [
     maxWidth: "max-w-2xl",
     imgKey: "lg",
     width: 664,
+    sizes: "(max-width: 768px) 100vw, 664px"
   },
   {
     value: "tablet",
@@ -30,6 +31,7 @@ const screenSizes = [
     maxWidth: "max-w-md",
     imgKey: "md",
     width: 440,
+    sizes: "(max-width: 768px) 100vw, 440px"
   },
   {
     value: "mobile",
@@ -37,6 +39,7 @@ const screenSizes = [
     maxWidth: "max-w-xs",
     imgKey: "sm",
     width: 312,
+    sizes: "(max-width: 768px) 100vw, 312px"
   },
 ];
 
@@ -62,6 +65,7 @@ export default function ProjectCard({
                 src={thumb}
                 alt={title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 className="object-cover object-top"
               />
             </div>
@@ -95,13 +99,14 @@ export default function ProjectCard({
             {screenSizes.map((screen) => (
               <TabsContent key={screen.value} value={screen.value}>
                 <div
-                  className={`${screen.maxWidth} mx-auto w-full relative h-full md:h-[19.375rem] md:overflow-auto md:scroll-image`}
+                  className={`${screen.maxWidth} mx-auto w-full relative h-full md:h-77.5 md:overflow-auto md:scroll-image`}
                 >
                   <Image
                     src={pics[screen.imgKey]}
                     width={screen.width}
                     height={374}
                     alt={title}
+                    sizes={screen.sizes}
                   />
                 </div>
               </TabsContent>
@@ -116,13 +121,13 @@ export default function ProjectCard({
             </Link>
             {github === "" ? (
               <Button variant="outline" disabled>
-                <Github />
+                <GitHub />
                 Github
               </Button>
             ) : (
               <Link href={github} target="_blank">
                 <Button variant="outline" asChild>
-                  <Github />
+                  <GitHub />
                   Github
                 </Button>
               </Link>

@@ -1,17 +1,44 @@
-"use client";;
-import React, { useEffect, useRef, useState } from "react";
+"use client";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { renderToString } from "react-dom/server";
 
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function IconCloud({
-  icons,
-  images
-}) {
+export function IconCloud({ icons, images }) {
   const canvasRef = useRef(null);
-  const [iconPositions, setIconPositions] = useState([]);
+
+  // ✅ Compute initial 3D sphere positions pure in render with useMemo (No state/effect needed)
+  const iconPositions = useMemo(() => {
+    const items = icons || images || [];
+    const newIcons = [];
+    const numIcons = items.length || 20;
+
+    // Fibonacci sphere parameters
+    const offset = 2 / numIcons;
+    const increment = Math.PI * (3 - Math.sqrt(5));
+
+    for (let i = 0; i < numIcons; i++) {
+      const y = i * offset - 1 + offset / 2;
+      const r = Math.sqrt(1 - y * y);
+      const phi = i * increment;
+
+      const x = Math.cos(phi) * r;
+      const z = Math.sin(phi) * r;
+
+      newIcons.push({
+        x: x * 100,
+        y: y * 100,
+        z: z * 100,
+        scale: 1,
+        opacity: 1,
+        id: i,
+      });
+    }
+    return newIcons;
+  }, [icons, images]);
+
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
@@ -72,36 +99,6 @@ export function IconCloud({
     });
 
     iconCanvasesRef.current = newIconCanvases;
-  }, [icons, images]);
-
-  // Generate initial icon positions on a sphere
-  useEffect(() => {
-    const items = icons || images || [];
-    const newIcons = [];
-    const numIcons = items.length || 20;
-
-    // Fibonacci sphere parameters
-    const offset = 2 / numIcons;
-    const increment = Math.PI * (3 - Math.sqrt(5));
-
-    for (let i = 0; i < numIcons; i++) {
-      const y = i * offset - 1 + offset / 2;
-      const r = Math.sqrt(1 - y * y);
-      const phi = i * increment;
-
-      const x = Math.cos(phi) * r;
-      const z = Math.sin(phi) * r;
-
-      newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
-        scale: 1,
-        opacity: 1,
-        id: i,
-      });
-    }
-    setIconPositions(newIcons);
   }, [icons, images]);
 
   // Handle mouse events
@@ -245,7 +242,6 @@ export function IconCloud({
         ctx.globalAlpha = opacity;
 
         if (icons || images) {
-          // Only try to render icons/images if they exist
           if (
             iconCanvasesRef.current[index] &&
             imagesLoadedRef.current[index]
@@ -253,7 +249,6 @@ export function IconCloud({
             ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
           }
         } else {
-          // Show numbered circles if no icons/images are provided
           ctx.beginPath();
           ctx.arc(0, 0, 20, 0, Math.PI * 2);
           ctx.fillStyle = "#4444ff";
@@ -280,7 +275,7 @@ export function IconCloud({
   }, [icons, images, iconPositions, isDragging, mousePos, targetRotation]);
 
   return (
-    (<canvas
+    <canvas
       ref={canvasRef}
       width={300}
       height={300}
@@ -289,6 +284,7 @@ export function IconCloud({
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
       aria-label="Interactive 3D Icon Cloud"
-      role="img" />)
+      role="img"
+    />
   );
 }

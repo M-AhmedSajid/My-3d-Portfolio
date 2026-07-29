@@ -40,7 +40,7 @@ const DrawerContent = forwardRef(
         )}
         {...props}
       >
-        <div className="mx-auto my-4 h-2 w-[100px] rounded-full bg-muted" />
+        <div className="mx-auto my-4 h-2 w-25 rounded-full bg-muted" />
         <div className="container overflow-auto md:overflow-hidden">{children}</div>
       </DrawerPrimitive.Content>
     </DrawerPortal>

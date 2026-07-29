@@ -131,12 +131,12 @@ export default function ContactSection() {
         maxOpacity={0.25}
         duration={3}
         repeatDelay={1}
-        className="-z-10 inset-x-0 h-[150%] -inset-y-[25%] skew-y-12 dark:opacity-25 [mask-image:radial-gradient(800px_circle_at_center,white,transparent)]"
+        className="-z-10 inset-x-0 h-[150%] inset-y-[-25%] skew-y-12 dark:opacity-25 mask-[radial-gradient(800px_circle_at_center,white,transparent)]"
       />
       <TextAnimate
         animation="slideLeft"
         by="character"
-        as="h2"
+       
         once
         className="text-center mb-5 text-4xl font-bold"
       >
@@ -160,7 +160,7 @@ export default function ContactSection() {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Please enter your full name."
-                className="bg-tertiary py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
+                className="bg-white dark:bg-black py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
               />
             </label>
             <label className="flex flex-col">
@@ -171,7 +171,7 @@ export default function ContactSection() {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="Please enter your email address."
-                className="bg-tertiary py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
+                className="bg-white dark:bg-black py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
               />
             </label>
             <label className="flex flex-col">
@@ -182,7 +182,7 @@ export default function ContactSection() {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="Please describe how I can assist you."
-                className="bg-tertiary py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
+                className="bg-white dark:bg-black py-4 px-6 shadow-lg rounded-lg outline-none border-none font-medium"
               />
               <div className="flex justify-end">
                 <span className="text-gray-500 text-sm mt-1">

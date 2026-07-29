@@ -2,9 +2,10 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "./CanvasLoader";
+import { PCFShadowMap } from "three";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.glb");
+  const computer = useGLTF("/desktop_pc/scene.glb");
 
   return (
     <mesh>
@@ -29,34 +30,33 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  // Pass a function to useState so it evaluates the initial state once on mount
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(max-width: 500px)").matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
-    // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
 
   return (
-    <div className="xl:flex-1 xl:h-auto md:h-[400px] h-[200px]">
+    <div className="xl:flex-1 xl:h-auto md:h-100 h-50">
       <Canvas
         frameloop="demand"
-        shadows
+        shadows={{ type: PCFShadowMap }}
         dpr={[1, 2]}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{ preserveDrawingBuffer: true }}
@@ -80,3 +80,4 @@ const ComputersCanvas = () => {
 };
 
 export default ComputersCanvas;
+useGLTF.preload("/desktop_pc/scene.glb");

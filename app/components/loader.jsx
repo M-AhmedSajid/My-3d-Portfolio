@@ -7,28 +7,34 @@ export default function Loader() {
   const [initialTxt, setInitialTxt] = useState(true);
 
   useEffect(() => {
-    setInitialTxt(false);
+    // Schedule setInitialTxt asynchronously right after mount
+    const frame = requestAnimationFrame(() => {
+      setInitialTxt(false);
+    });
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // Small delay after model loads to ensure smooth transition
+    }, 1500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
     <div
-      className={`w-screen h-screen z-[99] flex flex-col justify-center items-center fixed duration-700 transition-transform bg-white dark:bg-black top-0 ${
+      className={`w-screen h-screen z-99 flex flex-col justify-center items-center fixed duration-700 transition-transform bg-white dark:bg-black top-0 ${
         isLoading ? "" : "-translate-y-full"
       }`}
     >
       <div className="spinner">
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:translateZ(-45px)_rotateY(180deg)]"></div>
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:rotateY(-270deg)_translateX(50%)] origin-top-right"></div>
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:rotateY(270deg)_translateX(-50%)] origin-left"></div>
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:rotateX(90deg)_translateY(-50%)] origin-top"></div>
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:rotateX(-90deg)_translateY(50%)] origin-bottom"></div>
-        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary [transform:translateZ(45px)]"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[translateZ(-45px)_rotateY(180deg)]"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[rotateY(-270deg)_translateX(50%)] origin-top-right"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[rotateY(270deg)_translateX(-50%)] origin-left"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[rotateX(90deg)_translateY(-50%)] origin-top"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[rotateX(-90deg)_translateY(50%)] origin-bottom"></div>
+        <div className="absolute w-full h-full bg-primary/25 border-[3.5px] border-primary transform-[translateZ(45px)]"></div>
       </div>
 
       {/* Loading message with subtle animation */}
@@ -39,10 +45,7 @@ export default function Loader() {
           </p>
         ) : (
           <WordRotate
-            words={[
-              "Loading 3D assets...",
-              "Preparing environment...",
-            ]}
+            words={["Loading 3D assets...", "Preparing environment..."]}
             className="text-lg font-medium text-primary"
           />
         )}

@@ -2,14 +2,16 @@
 
 import { useChat } from "@ai-sdk/react";
 import { useState, useEffect } from "react";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send } from "react-feather";
 import { Button } from "@/components/ui/button";
 import Markdown from "react-markdown";
 
 export default function PortfolioChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChat({
+    api: process.env.NEXT_PUBLIC_CHAT_API,
+  });
   const isLoading = status === "submitted" || status === "streaming";
 
   const starterPrompts = [
@@ -45,7 +47,7 @@ export default function PortfolioChatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 bg-primary text-white hover:bg-black dark:hover:bg-white dark:hover:text-black  px-4 py-3 rounded-full shadow-lg transition-transform hover:scale-105"
+          className="flex items-center gap-2 bg-primary text-white hover:bg-black dark:hover:bg-white dark:hover:text-black  px-4 py-3 rounded-full shadow-lg transition-transform hover:scale-105 cursor-pointer"
         >
           <MessageSquare className="w-6 h-6" />
           <span className="text-sm font-medium pr-1">Ask AI about me</span>
@@ -53,7 +55,7 @@ export default function PortfolioChatbot() {
       )}
 
       {isOpen && (
-        <div className="fixed inset-x-2 bottom-5 md:inset-auto md:bottom-5 md:right-5 w-[calc(100vw-16px)] md:w-[350px] h-[80vh] md:h-[500px] bg-card border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed inset-x-2 bottom-5 md:inset-auto md:bottom-5 md:right-5 w-[calc(100vw-16px)] md:w-87.5 h-[80vh] md:h-125 bg-card border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
             <div>
@@ -64,7 +66,7 @@ export default function PortfolioChatbot() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="hover:opacity-80"
+              className="hover:opacity-80 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -75,8 +77,8 @@ export default function PortfolioChatbot() {
             {messages.length === 0 && (
               <div className="space-y-4 my-auto pt-2">
                 <div className="text-muted-foreground text-xs text-center leading-relaxed">
-                  👋 Hi! I can answer questions about Ahmed's experience, tech
-                  stack, and portfolio projects.
+                  👋 Hi! I can answer questions about Ahmed&apos;s experience,
+                  tech stack, and portfolio projects.
                 </div>
 
                 {/* Starter Chips Container */}

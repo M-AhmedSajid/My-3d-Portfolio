@@ -1,15 +1,14 @@
 "use client";
 
 import {
-  School,
   Briefcase,
-  University,
-  Building2,
+  Terminal,
+  Award,
+  BookOpen,
+  Book,
   Flag,
-  BriefcaseBusiness,
-} from "lucide-react";
+} from "react-feather";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -20,7 +19,7 @@ const exp = [
   {
     date: "2024 - Present",
     title: "Full Stack Developer",
-    icon: <BriefcaseBusiness />,
+    icon: <Terminal />, // Indicates developer / technical role
     subtitle: "Spectra Tech Solutions",
     points: [
       "Building scalable and responsive web applications",
@@ -32,7 +31,7 @@ const exp = [
   {
     date: "2023 - 2024",
     title: "Web Developer",
-    icon: <Briefcase />,
+    icon: <Briefcase />, // Standard work/job icon
     subtitle: "AllTasker",
     points: [
       "Designing and implementing user-friendly web interfaces using modern front-end technologies",
@@ -47,33 +46,27 @@ const edu = [
   {
     date: "2025 - Present",
     title: "Bachelor of Engineering in Software Engineering",
-    icon: <University />,
+    icon: <Award />, // Represents degree / achievement
     subtitle: "Sir Syed University of Engineering and Technology",
   },
   {
     date: "2022 - 2024",
     title: "Intermediate in Computer Science",
-    icon: <Building2 />,
+    icon: <BookOpen />, // Represents active learning / college
     subtitle: "Govt Degree College for Boys",
   },
   {
     date: "2020 - 2022",
     title: "Matriculation in Science",
-    icon: <School />,
+    icon: <Book />, // Represents foundational education
     subtitle: "Metro Foundation School",
   },
-]
+];
 
 export function Timeline() {
   const { resolvedTheme, theme, systemTheme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // If theme is set to 'system', use the system preference
-    // Otherwise use the explicitly set theme
-    const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
-    setIsDark(currentTheme === "dark");
-  }, [resolvedTheme, theme, systemTheme]);
+  const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
+  const isDark = currentTheme === "dark";
 
   // Theme-dependent styles
   const timelineStyles = {
@@ -168,14 +161,8 @@ export function Timeline() {
 
 export function Timeline2() {
   const { resolvedTheme, theme, systemTheme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // If theme is set to 'system', use the system preference
-    // Otherwise use the explicitly set theme
-    const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
-    setIsDark(currentTheme === "dark");
-  }, [resolvedTheme, theme, systemTheme]);
+  const currentTheme = theme === "system" ? systemTheme : resolvedTheme;
+  const isDark = currentTheme === "dark";
 
   // Theme-dependent styles
   const timelineStyles = {

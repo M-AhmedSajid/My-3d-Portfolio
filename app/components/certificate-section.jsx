@@ -356,7 +356,7 @@ export default function CertificateSection() {
       <TextAnimate
         animation="slideLeft"
         by="character"
-        as="h2"
+       
         once
         className="text-center mb-5 text-4xl font-bold"
       >

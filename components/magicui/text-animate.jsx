@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -242,15 +242,12 @@ export function TextAnimate({
   variants,
   className,
   segmentClassName,
-  as: Component = "p",
   startOnView = true,
   once = false,
   by = "word",
   animation = "fadeIn",
   ...props
 }) {
-  const MotionComponent = motion.create(Component);
-
   // Use provided variants or default variants based on animation type
   const finalVariants = animation
     ? {
@@ -292,8 +289,8 @@ export function TextAnimate({
   }
 
   return (
-    (<AnimatePresence mode="popLayout">
-      <MotionComponent
+    <AnimatePresence mode="popLayout">
+      <motion.h2
         variants={finalVariants.container}
         initial="hidden"
         whileInView={startOnView ? "show" : undefined}
@@ -301,17 +298,22 @@ export function TextAnimate({
         exit="exit"
         className={cn("whitespace-pre-wrap", className)}
         viewport={{ once }}
-        {...props}>
+        {...props}
+      >
         {segments.map((segment, i) => (
           <motion.span
             key={`${by}-${segment}-${i}`}
             variants={finalVariants.item}
             custom={i * staggerTimings[by]}
-            className={cn(by === "line" ? "block" : "inline-block whitespace-pre", segmentClassName)}>
+            className={cn(
+              by === "line" ? "block" : "inline-block whitespace-pre",
+              segmentClassName,
+            )}
+          >
             {segment}
           </motion.span>
         ))}
-      </MotionComponent>
-    </AnimatePresence>)
+      </motion.h2>
+    </AnimatePresence>
   );
 }

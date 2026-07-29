@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import { motion } from "motion/react";
 import React, { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "react-feather";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
@@ -41,7 +41,7 @@ export default function Navbar() {
           }
         });
       },
-      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
 
     links.forEach((link) => {
@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full px-8 py-4 [html:data-scroll-locked=1]:pr-[15px]">
+      <header className="fixed top-0 z-50 w-full px-8 py-4 [html[data-scroll-locked='1']]:pr-3.75">
         <div className="lg:relative mx-auto flex flex-row justify-between items-center lg:justify-center rounded-full border p-2 px-4 lg:px-2 shadow-sm backdrop-blur transition-colors lg:w-fit bg-white dark:bg-black">
           <NavigationMenu>
             <NavigationMenuList>
@@ -91,16 +91,17 @@ export default function Navbar() {
                   onMouseEnter={(e) => mouseEnter(e)}
                   onMouseLeave={() => mouseleave()}
                 >
-                  <Link href={link.href} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={`${navigationMenuTriggerStyle()} ${
-                        activeLink === link.href ? "bg-primary text-primary-foreground" : ""
-                      }`}
-                      onClick={() => handleLinkClick(link.href)}
-                    >
-                      {link.txt}
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    asChild
+                    className={`${navigationMenuTriggerStyle()} ${
+                      activeLink === link.href
+                        ? "bg-primary text-primary-foreground"
+                        : ""
+                    }`}
+                    onClick={() => handleLinkClick(link.href)}
+                  >
+                    <Link href={link.href}>{link.txt}</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
               <NavigationMenuItem
@@ -108,7 +109,7 @@ export default function Navbar() {
                 onMouseLeave={() => mouseleave()}
                 onClick={() =>
                   setTheme((prevTheme) =>
-                    prevTheme === "light" ? "dark" : "light"
+                    prevTheme === "light" ? "dark" : "light",
                   )
                 }
               >
@@ -135,7 +136,7 @@ export default function Navbar() {
               className={`inline-flex justify-center items-center`}
               onClick={() =>
                 setTheme((prevTheme) =>
-                  prevTheme === "light" ? "dark" : "light"
+                  prevTheme === "light" ? "dark" : "light",
                 )
               }
             >
@@ -161,7 +162,7 @@ export default function Navbar() {
             key={link.txt}
             className={cn(
               "text-3xl",
-              activeLink === link.href && "text-primary font-bold"
+              activeLink === link.href && "text-primary font-bold",
             )}
           >
             <Link href={link.href} onClick={() => handleLinkClick(link.href)}>

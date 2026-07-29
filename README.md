@@ -2,7 +2,7 @@
 
 A modern personal portfolio built with Next.js, React, Tailwind CSS, Three.js, and a Gemini-powered AI assistant. The experience combines immersive 3D visuals, polished UI animations, and portfolio content that can be asked about in natural language.
 
-Live site: https://ahmed-sajid.web.app
+Live site: https://ahmed-sajid.vercel.app/
 
 ## What this project includes
 
@@ -111,7 +111,7 @@ npm run embeddings # generate AI retrieval embeddings
 
 **M. Ahmed Sajid**  
 Full Stack Developer 💻 | Making Web Development Easy 🛠️ 
-🌐 [Visit My Portfolio](https://ahmed-sajid.web.app)
+🌐 [Visit My Portfolio](https://ahmed-sajid.vercel.app/)
 
 ---
 

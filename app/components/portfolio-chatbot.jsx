@@ -9,9 +9,7 @@ import Markdown from "react-markdown";
 export default function PortfolioChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat({
-    api: process.env.NEXT_PUBLIC_CHAT_API,
-  });
+  const { messages, sendMessage, status } = useChat();
   const isLoading = status === "submitted" || status === "streaming";
 
   const starterPrompts = [
@@ -77,8 +75,8 @@ export default function PortfolioChatbot() {
             {messages.length === 0 && (
               <div className="space-y-4 my-auto pt-2">
                 <div className="text-muted-foreground text-xs text-center leading-relaxed">
-                  👋 Hi! I can answer questions about Ahmed&apos;s experience,
-                  tech stack, and portfolio projects.
+                  👋 Hi! I can answer questions about Ahmed&apos;s experience, tech
+                  stack, and portfolio projects.
                 </div>
 
                 {/* Starter Chips Container */}

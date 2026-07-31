@@ -9,6 +9,7 @@ import Footer from "./components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import dynamic from "next/dynamic";
 import PortfolioChatbot from "./components/portfolio-chatbot";
+import GoogleAnalytics from "@/lib/GoogleAnalytics";
 const AOSInit = dynamic(() =>
   import("@/lib/aos-init").then((mod) => mod.AOSInit),
 );
@@ -50,6 +51,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+      <GoogleAnalytics />
       <AOSInit />
       <body className={`${gabarito.className} antialiased`}>
         <ThemeProvider

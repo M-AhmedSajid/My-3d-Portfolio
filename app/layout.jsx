@@ -22,12 +22,15 @@ export const metadata = {
   title: "Muhammad Ahmed Sajid - Portfolio",
   description:
     "I'm Ahmed, a passionate Web Developer and Full Stack MERN Developer with 2 years of experience. I build websites that not only look great but solve real business problems. From small sites to complex apps, I create secure, user-friendly solutions that help businesses grow.",
-  metadataBase: new URL("https://ahmed-sajid.web.app"),
+  metadataBase: new URL("https://ahmed-sajid.vercel.app"),
+  verification: {
+    google: "19nR7mvIxUVEnwtAynkEve72A53nauRVAfN3-0ZOUvc",
+  },
   openGraph: {
     title: "M. Ahmed Sajid - 3D Portfolio",
     description:
       "Interactive 3D portfolio built with Next.js, Three.js & TailwindCSS. Responsive, animated, and modern web experience.",
-    url: "https://ahmed-sajid.web.app",
+    url: "https://ahmed-sajid.vercel.app",
     siteName: "Ahmed Sajid Portfolio",
     images: [
       {

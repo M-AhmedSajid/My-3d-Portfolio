@@ -10,7 +10,7 @@ Live site: https://ahmed-sajid.vercel.app/
 - Interactive 3D visuals rendered with Three.js, React Three Fiber, and Drei
 - Smooth animations powered by Framer Motion, AOS, and react-tilt
 - A contact form connected to EmailJS
-- An AI chatbot that answers questions using [next-ai-chatbot](https://github.com/M-AhmedSajid/next-ai-chatbot) and portfolio content stored in Markdown and embedded for retrieval
+- An AI chatbot that answers questions using [react-ai-chat](https://github.com/M-AhmedSajid/react-ai-chat) and portfolio content stored in Markdown and embedded for retrieval
 - Dark/light theme support with Next Themes
 
 ## Tech stack

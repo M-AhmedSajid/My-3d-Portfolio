@@ -1,4 +1,4 @@
-import { createChatRoute, googleEmbedding } from "next-ai-chatbot/server";
+import { createChatRoute, googleEmbedding } from "react-ai-chat/server"
 import { google } from "@ai-sdk/google";
 import embeddings from "@/chatbot/embeddings.json";
 

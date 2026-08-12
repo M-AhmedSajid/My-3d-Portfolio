@@ -1,6 +1,6 @@
 "use client";
-
-import { Chatbot } from "next-ai-chatbot/client";
+import { Chatbot } from "react-ai-chat";
+import "react-ai-chat/style.css";
 
 export default function PortfolioChatbot() {
   const starterPrompts = [
